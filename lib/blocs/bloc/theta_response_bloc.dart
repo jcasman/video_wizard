@@ -11,17 +11,44 @@ part 'theta_response_state.dart';
 class ThetaResponseBloc extends Bloc<ThetaResponseEvent, ThetaResponseState> {
   ThetaResponseBloc() : super(ThetaResponseState.initial()) {
     on<EightKEvent>((event, emit) async {
-      var url = Uri.parse('http://192.168.1.1/osc/info');
-      var response = await http.get(url,
+      var url = Uri.parse('http://192.168.1.1/osc/commands/execute');
+      var bodyRequest = jsonEncode({
+        'name': 'camera.setOptions',
+        'parameters': {
+          'options': {
+            'fileFormat': {
+              'type': 'mp4',
+              'width': 7680,
+              'height': 3840,
+              '_codec': 'H.264/MPEG-4 AVC',
+              '_frameRate': 2
+            }
+          }
+        }
+      });
+      var response = await http.post(url,
+          body: bodyRequest,
           headers: {'Content-Type': 'application/json;charset=utf-8'});
       emit(ThetaResponseState(
           thetaResponse: 'set to 8k 2fps\n'
               '${response.body}'));
     });
     on<FiveSevenKEvent>((event, emit) async {
-      var url = Uri.parse('https://jsonplaceholder.typicode.com/posts');
-      var bodyRequest =
-          jsonEncode({'title': 'foo', 'body': 'bar', 'userId': 1});
+      var url = Uri.parse('http://192.168.1.1/osc/commands/execute');
+      var bodyRequest = jsonEncode({
+        'name': 'camera.setOptions',
+        'parameters': {
+          'options': {
+            'fileFormat': {
+              'type': 'mp4',
+              'width': 5760,
+              'height': 2880,
+              '_codec': 'H.264/MPEG-4 AVC',
+              '_frameRate': 30
+            }
+          }
+        }
+      });
       var response = await http.post(url,
           body: bodyRequest,
           headers: {'Content-Type': 'application/json;charset=utf-8'});

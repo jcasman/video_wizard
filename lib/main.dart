@@ -24,8 +24,7 @@ class MyApp extends StatelessWidget {
                     padding: const EdgeInsets.all(16.0),
                     child: Expanded(
                       flex: 2,
-                      child: FloatingActionButton(
-                        tooltip: 'new for X',
+                      child: TextButton(
                         child: Padding(
                           padding: const EdgeInsets.all(7.0),
                           child: Column(
@@ -41,18 +40,22 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                   ),
-                  FloatingActionButton(
-                    tooltip: 'regular API',
-                    onPressed: () {
-                      context.read<ThetaResponseBloc>().add(FiveSevenKEvent());
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(7.0),
-                      child: Column(
-                        children: [
-                          Text('5.7k'),
-                          Text('30fps'),
-                        ],
+                  Expanded(
+                    flex: 2,
+                    child: TextButton(
+                      onPressed: () {
+                        context
+                            .read<ThetaResponseBloc>()
+                            .add(FiveSevenKEvent());
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(7.0),
+                        child: Column(
+                          children: [
+                            Text('5.7k'),
+                            Text('30fps'),
+                          ],
+                        ),
                       ),
                     ),
                   ),

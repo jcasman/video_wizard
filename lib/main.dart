@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'blocs/bloc/theta_response_bloc.dart';
+import 'view/eight_k_two_button.dart';
+import 'view/five_seven_k_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,50 +22,18 @@ class MyApp extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Expanded(
-                      flex: 2,
-                      child: TextButton(
-                        child: Padding(
-                          padding: const EdgeInsets.all(7.0),
-                          child: Column(
-                            children: [
-                              Text('8k'),
-                              Text('2fps'),
-                            ],
-                          ),
-                        ),
-                        onPressed: () {
-                          context.read<ThetaResponseBloc>().add(EightKEvent());
-                        },
-                      ),
-                    ),
-                  ),
-                  Expanded(
+                  const Expanded(
                     flex: 2,
-                    child: TextButton(
-                      onPressed: () {
-                        context
-                            .read<ThetaResponseBloc>()
-                            .add(FiveSevenKEvent());
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(7.0),
-                        child: Column(
-                          children: [
-                            Text('5.7k'),
-                            Text('30fps'),
-                          ],
-                        ),
-                      ),
-                    ),
+                    child: EightKTwoButton(),
+                  ),
+                  const Expanded(
+                    flex: 2,
+                    child: FiveSevenKButton(),
                   ),
                   Expanded(
                     flex: 4,
-                    child: SingleChildScrollView(
-                        child:
-                            Container(child: Text('${state.thetaResponse}'))),
+                    child:
+                        SingleChildScrollView(child: Text(state.thetaResponse)),
                   ),
                 ],
               );

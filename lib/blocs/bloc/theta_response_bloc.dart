@@ -10,6 +10,21 @@ part 'theta_response_state.dart';
 
 class ThetaResponseBloc extends Bloc<ThetaResponseEvent, ThetaResponseState> {
   ThetaResponseBloc() : super(ThetaResponseState.initial()) {
+    on<CameraControlSourceEvent>((event, emit) async {
+      var url = Uri.parse('http://192.168.1.1/osc/commands/execute');
+      var bodyRequest = jsonEncode({
+        'name': 'camera.setOptions',
+        'parameters': {
+          'options': {'_cameraControlSource': 'app'}
+        }
+      });
+      var response = await http.post(url,
+          body: bodyRequest,
+          headers: {'Content-Type': 'application/json;charset=utf-8'});
+      emit(ThetaResponseState(
+          thetaResponse: 'Turn LCD off\n'
+              '${response.body}'));
+    });
     on<EightKEvent>((event, emit) async {
       var url = Uri.parse('http://192.168.1.1/osc/commands/execute');
       var bodyRequest = jsonEncode({
@@ -54,6 +69,29 @@ class ThetaResponseBloc extends Bloc<ThetaResponseEvent, ThetaResponseState> {
           headers: {'Content-Type': 'application/json;charset=utf-8'});
       emit(ThetaResponseState(
           thetaResponse: 'set to 5.7k 30fps\n'
+              '${response.body}'));
+    });
+    on<EightKEvent5>((event, emit) async {
+      var url = Uri.parse('http://192.168.1.1/osc/commands/execute');
+      var bodyRequest = jsonEncode({
+        'name': 'camera.setOptions',
+        'parameters': {
+          'options': {
+            'fileFormat': {
+              'type': 'mp4',
+              'width': 7680,
+              'height': 3840,
+              '_codec': 'H.264/MPEG-4 AVC',
+              '_frameRate': 5
+            }
+          }
+        }
+      });
+      var response = await http.post(url,
+          body: bodyRequest,
+          headers: {'Content-Type': 'application/json;charset=utf-8'});
+      emit(ThetaResponseState(
+          thetaResponse: 'set to 8k 5fps\n'
               '${response.body}'));
     });
   }

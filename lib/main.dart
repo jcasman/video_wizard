@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'blocs/bloc/theta_response_bloc.dart';
+import 'view/camera_control_source_button.dart';
 import 'view/eight_k_two_button.dart';
 import 'view/five_seven_k_button.dart';
 
@@ -23,12 +24,16 @@ class MyApp extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Expanded(
-                    flex: 2,
+                    flex: 1,
                     child: EightKTwoButton(),
                   ),
                   const Expanded(
-                    flex: 2,
+                    flex: 1,
                     child: FiveSevenKButton(),
+                  ),
+                  const Expanded(
+                    flex: 1,
+                    child: CameraControlSourceButton(),
                   ),
                   Expanded(
                     flex: 4,

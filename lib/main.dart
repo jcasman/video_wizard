@@ -16,36 +16,40 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ThetaResponseBloc(),
-      child: MaterialApp(home: Scaffold(
-        body: Center(
-          child: BlocBuilder<ThetaResponseBloc, ThetaResponseState>(
-            builder: (context, state) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Expanded(
-                    flex: 1,
-                    child: EightKTwoButton(),
-                  ),
-                  const Expanded(
-                    flex: 1,
-                    child: FiveSevenKButton(),
-                  ),
-                  const Expanded(
-                    flex: 1,
-                    child: CameraControlSourceButton(),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child:
-                        SingleChildScrollView(child: Text(state.thetaResponse)),
-                  ),
-                ],
-              );
-            },
-          ),
-        ),
-      )),
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: Scaffold(
+            body: Center(
+              child: BlocBuilder<ThetaResponseBloc, ThetaResponseState>(
+                builder: (context, state) {
+                  return SafeArea(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Expanded(
+                          flex: 1,
+                          child: EightKTwoButton(),
+                        ),
+                        const Expanded(
+                          flex: 1,
+                          child: FiveSevenKButton(),
+                        ),
+                        const Expanded(
+                          flex: 1,
+                          child: CameraControlSourceButton(),
+                        ),
+                        Expanded(
+                          flex: 4,
+                          child: SingleChildScrollView(
+                              child: Text(state.thetaResponse)),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          )),
     );
   }
 }

@@ -13,7 +13,7 @@ This is also display on the LCD screen on the THETA X.
 ## 5.7K 30fps
 
 After the button is pressed, you will get a confirmation that is it set to 5k 30fps.
-![5.7K 30fps](docs/screenshot_5_7.png)
+![5.7K 30fps](docs/three-buttons2.png)
 
 This is also displayed on the LCD screen on the THETA X.
 ![5.7K camera](docs/5_7k_camera.png)

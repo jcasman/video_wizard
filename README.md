@@ -5,7 +5,7 @@ This is a RICOH THETA X testing tool created by Oppkey. It has three main functi
 ## 8K 2fps
 
 After the button is pressed, you will get a confirmation that it is set to 8k 2fps.
-![screenshot](docs/screenshot.png)
+![screenshot](docs/three-buttons.png)
 
 This is also display on the LCD screen on the THETA X.
 ![8K camera](docs/8K_camera.png)

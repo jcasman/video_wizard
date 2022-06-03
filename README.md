@@ -1,6 +1,6 @@
 # video_wizard
 
-This is a RICOH THETA X testing tool created by Oppkey. It has two main functions. It can set the THETA X video shooting mode to 8K 2fps. And it can set it to 5.7K 30fps. It should be useful for testing 8K 2fps, which is common in construction applications.
+This is a RICOH THETA X testing tool created by Oppkey. It has three main functions. It can turn off the LCD screen, which is required to run mobile apps with the THETA X. It can also set the THETA X video shooting mode to 8K 2fps. And it can set it to 5.7K 30fps. It should be useful for testing 8K 2fps, which is common in construction applications.
 
 ## 8K 2fps
 

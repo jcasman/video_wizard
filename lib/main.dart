@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'blocs/bloc/theta_response_bloc.dart';
-import 'view/camera_control_source_button.dart';
-import 'view/eight_k_two_button.dart';
-import 'view/five_seven_k_button.dart';
+import 'view/groups/button_group_one.dart';
+import 'view/groups/button_group_two.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,15 +27,11 @@ class MyApp extends StatelessWidget {
                       children: [
                         const Expanded(
                           flex: 1,
-                          child: EightKTwoButton(),
+                          child: ButtonGroupOne(),
                         ),
                         const Expanded(
                           flex: 1,
-                          child: FiveSevenKButton(),
-                        ),
-                        const Expanded(
-                          flex: 1,
-                          child: CameraControlSourceButton(),
+                          child: ButtonGroupTwo(),
                         ),
                         Expanded(
                           flex: 4,

@@ -94,5 +94,21 @@ class ThetaResponseBloc extends Bloc<ThetaResponseEvent, ThetaResponseState> {
           thetaResponse: 'set to 8k 5fps\n'
               '${response.body}'));
     });
+    on<SetModeVideo>(_setModeVideo);
+  }
+  void _setModeVideo(ThetaResponseEvent event, Emitter emit) async {
+    var url = Uri.parse('http://192.168.1.1/osc/commands/execute');
+    var bodyRequest = jsonEncode({
+      'name': 'camera.setOptions',
+      'parameters': {
+        'options': {'captureMode': 'video'}
+      }
+    });
+    var response = await http.post(url,
+        body: bodyRequest,
+        headers: {'Content-Type': 'application/json;charset=utf-8'});
+    emit(ThetaResponseState(
+        thetaResponse: 'set mode to video\n'
+            '${response.body}'));
   }
 }

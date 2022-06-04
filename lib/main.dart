@@ -39,6 +39,17 @@ class MyApp extends StatelessWidget {
                           child: CameraControlSourceButton(),
                         ),
                         Expanded(
+                          flex: 1,
+                          child: TextButton(
+                            child: Text('video'),
+                            onPressed: () {
+                              context
+                                  .read<ThetaResponseBloc>()
+                                  .add(SetModeVideo());
+                            },
+                          ),
+                        ),
+                        Expanded(
                           flex: 4,
                           child: SingleChildScrollView(
                               child: Text(state.thetaResponse)),

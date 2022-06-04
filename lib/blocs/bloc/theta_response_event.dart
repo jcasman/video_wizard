@@ -10,3 +10,5 @@ class EightKEvent extends ThetaResponseEvent {}
 class FiveSevenKEvent extends ThetaResponseEvent {}
 
 class EightKEvent5 extends ThetaResponseEvent {}
+
+class SetModeVideo extends ThetaResponseEvent {}
